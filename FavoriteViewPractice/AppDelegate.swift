@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+
+        // iOS 11 からの機能
+        if #available(iOS 11.0, *) {
+            // Large Title
+            UINavigationBar.appearance().prefersLargeTitles = true
+        }
         return true
     }
 
