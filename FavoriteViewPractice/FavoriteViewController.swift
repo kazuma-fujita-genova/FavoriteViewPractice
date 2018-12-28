@@ -24,6 +24,8 @@ class FavoriteViewController: UIViewController {
 
     private func setupTableView() {
         favoriteTableView?.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")
+        // Cell区切り線を消す
+        favoriteTableView.separatorStyle = .none
         favoriteTableView?.dataSource = self
         favoriteTableView?.delegate = self
     }

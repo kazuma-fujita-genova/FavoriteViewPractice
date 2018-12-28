@@ -19,16 +19,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="377" height="402.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hYG-jC-b6G">
-                        <rect key="frame" x="0.0" y="73" width="377" height="216"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <date key="date" timeIntervalSinceReferenceDate="567589056.36813998">
-                            <!--2018-12-27 07:37:36 +0000-->
-                        </date>
-                    </datePicker>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hed-r2-Wj8">
+                        <rect key="frame" x="176" y="19" width="25" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="textFieldTouchDown:" destination="KGk-i7-Jjw" eventType="touchDown" id="RZR-95-gpV"/>
+                        </connections>
+                    </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="hed-r2-Wj8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="TrG-mh-b2a"/>
+                    <constraint firstItem="hed-r2-Wj8" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jk2-4Q-xdj"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="reserveDateTextField" destination="hed-r2-Wj8" id="PRb-ZE-tL7"/>
+            </connections>
             <point key="canvasLocation" x="-24.800000000000001" y="315.29235382308849"/>
         </tableViewCell>
     </objects>
