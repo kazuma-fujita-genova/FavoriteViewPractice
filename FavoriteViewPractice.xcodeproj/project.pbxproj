@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61ACFC5E3E34CBFCE14C3228 /* Pods_FavoriteViewPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638A961BBD93477088A1054 /* Pods_FavoriteViewPractice.framework */; };
 		A4F19B8A21D4B67500EE9E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F19B8921D4B67500EE9E98 /* AppDelegate.swift */; };
 		A4F19B8F21D4B67500EE9E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F19B8D21D4B67500EE9E98 /* Main.storyboard */; };
 		A4F19B9121D4B67700EE9E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F19B9021D4B67700EE9E98 /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07ABDB54E143A7CD3352D15D /* Pods-FavoriteViewPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteViewPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice.release.xcconfig"; sourceTree = "<group>"; };
+		3D35C2C389034946D7FFDDB8 /* Pods-FavoriteViewPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteViewPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		A47141C621D5FA43004AB662 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		A47141C721D5FA43004AB662 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A4F19B8621D4B67500EE9E98 /* FavoriteViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +33,7 @@
 		A4F19B9D21D4B74200EE9E98 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		A4F19B9F21D4B84400EE9E98 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		A4F19BA021D4B84400EE9E98 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		B638A961BBD93477088A1054 /* Pods_FavoriteViewPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteViewPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61ACFC5E3E34CBFCE14C3228 /* Pods_FavoriteViewPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A80B55EC37EDD019A9F965 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B638A961BBD93477088A1054 /* Pods_FavoriteViewPractice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CD9C80DDFD5DD82097B7644 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D35C2C389034946D7FFDDB8 /* Pods-FavoriteViewPractice.debug.xcconfig */,
+				07ABDB54E143A7CD3352D15D /* Pods-FavoriteViewPractice.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A4F19B7D21D4B67500EE9E98 = {
 			isa = PBXGroup;
 			children = (
 				A4F19B8821D4B67500EE9E98 /* FavoriteViewPractice */,
 				A4F19B8721D4B67500EE9E98 /* Products */,
+				9CD9C80DDFD5DD82097B7644 /* Pods */,
+				15A80B55EC37EDD019A9F965 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4F19B9821D4B67700EE9E98 /* Build configuration list for PBXNativeTarget "FavoriteViewPractice" */;
 			buildPhases = (
+				4BB6122FC943260D910A8E6E /* [CP] Check Pods Manifest.lock */,
 				A4F19B8221D4B67500EE9E98 /* Sources */,
 				A4F19B8321D4B67500EE9E98 /* Frameworks */,
 				A4F19B8421D4B67500EE9E98 /* Resources */,
+				21CF9235FBFBD42228BE1131 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,6 +167,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21CF9235FBFBD42228BE1131 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BB6122FC943260D910A8E6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FavoriteViewPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4F19B8221D4B67500EE9E98 /* Sources */ = {
@@ -298,6 +387,7 @@
 		};
 		A4F19B9921D4B67700EE9E98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D35C2C389034946D7FFDDB8 /* Pods-FavoriteViewPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +406,7 @@
 		};
 		A4F19B9A21D4B67700EE9E98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07ABDB54E143A7CD3352D15D /* Pods-FavoriteViewPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
