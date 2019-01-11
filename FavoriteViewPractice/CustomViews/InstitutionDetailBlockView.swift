@@ -8,7 +8,7 @@
 
 import UIKit
 
-// @IBDesignable
+@IBDesignable
 class InstitutionDetailBlockView: UIView {
     
     @IBOutlet weak var captionLabelField: UILabel!
@@ -44,7 +44,7 @@ class InstitutionDetailBlockView: UIView {
         
         // Viewに上線を追加
         view.layer.addSublayer(topBorder)
-        
+        view.backgroundColor = .red
         //addする。viewオブジェクトの2枚重ねになる。
         self.addSubview(view)
     }

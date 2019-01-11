@@ -28,10 +28,10 @@ class TestViewController: UIViewController {
         // デフォルトマップ表示
         mapView.mapType = MKMapType.standard
         // 各操作禁止
-        mapView.isScrollEnabled = false //スクロール
-        mapView.isRotateEnabled = false //回転
-        mapView.isZoomEnabled = false //ズーム
-        mapView.isPitchEnabled = false //3D表示
+        mapView.isScrollEnabled = false // スクロール
+        mapView.isRotateEnabled = false // 回転
+        mapView.isZoomEnabled = false // ズーム
+        mapView.isPitchEnabled = false // 3D表示
         // ピンを生成
         let pin: MKPointAnnotation = MKPointAnnotation()
         pin.coordinate = location
