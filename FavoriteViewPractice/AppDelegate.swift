@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
 
         // iOS 11 からの機能
-        if #available(iOS 11.0, *) {
+        //if #available(iOS 11.0, *) {
             // Large Title
-            UINavigationBar.appearance().prefersLargeTitles = true
-        }
+            //UINavigationBar.appearance().prefersLargeTitles = true
+        //}
+        
         return true
     }
 

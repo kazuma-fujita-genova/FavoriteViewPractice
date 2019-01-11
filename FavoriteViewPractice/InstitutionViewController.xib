@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstitutionViewController" customModule="FavoriteViewPractice" customModuleProvider="target">
+            <connections>
+                <outlet property="favoriteButton" destination="Yui-2f-LvU" id="qv7-pW-SRt"/>
+                <outlet property="institutionNameLabelField" destination="cjU-eY-WzJ" id="Y1y-sz-ikJ"/>
+                <outlet property="pageControl" destination="mqV-bM-SiU" id="nF6-S3-bb0"/>
+                <outlet property="pagerView" destination="ufv-RQ-I9M" id="8SH-ia-RNb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82I-Je-0qw">
+                    <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="WcE-i7-BBA">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="427.66666666666669"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufv-RQ-I9M" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.33333333333331"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqV-bM-SiU" customClass="CHIPageControlAleppo" customModule="CHIPageControl">
+                                            <rect key="frame" x="0.0" y="251.33333333333331" width="375" height="30"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="lqO-XA-PbU"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-2f-LvU" customClass="FaveButton" customModule="FaveButton">
+                                            <rect key="frame" x="323" y="8" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="2Eu-Vc-beU"/>
+                                                <constraint firstAttribute="width" constant="44" id="mUA-1I-rFQ"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="heart"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="mqV-bM-SiU" secondAttribute="bottom" id="0jQ-Zn-sjl"/>
+                                        <constraint firstItem="Yui-2f-LvU" firstAttribute="top" secondItem="ufv-RQ-I9M" secondAttribute="top" constant="8" id="1wf-w1-xul"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yui-2f-LvU" secondAttribute="trailing" constant="8" id="CRb-vF-xbY"/>
+                                        <constraint firstAttribute="trailing" secondItem="mqV-bM-SiU" secondAttribute="trailing" id="JAJ-md-vSr"/>
+                                        <constraint firstItem="mqV-bM-SiU" firstAttribute="leading" secondItem="ufv-RQ-I9M" secondAttribute="leading" id="mMD-4n-Ut5"/>
+                                        <constraint firstAttribute="width" secondItem="ufv-RQ-I9M" secondAttribute="height" multiplier="4:3" id="thO-x7-NWH"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="テストデンタルクリニック" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjU-eY-WzJ">
+                                    <rect key="frame" x="0.0" y="295.33333333333331" width="292" height="28.666666666666686"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内科 / 整形外科 / 皮膚科" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UO-Pb-La8">
+                                    <rect key="frame" x="0.0" y="338" width="174" height="19.333333333333314"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="kbW-ta-M6w">
+                                    <rect key="frame" x="0.0" y="371.33333333333331" width="375" height="56.333333333333314"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="こだわり・特徴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="573-8i-eJS">
+                                            <rect key="frame" x="0.0" y="0.0" width="135.66666666666666" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夜間診療 / 女医 / 急患受付 / 駅徒歩5分以内 / aaaaaaaaaaaaa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-YM-MmV">
+                                            <rect key="frame" x="0.0" y="37" width="375" height="19.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ufv-RQ-I9M" firstAttribute="leading" secondItem="WcE-i7-BBA" secondAttribute="leading" id="QYJ-XQ-3Ew"/>
+                                <constraint firstItem="ufv-RQ-I9M" firstAttribute="top" secondItem="WcE-i7-BBA" secondAttribute="top" id="eVq-34-5Z1"/>
+                                <constraint firstAttribute="trailing" secondItem="ufv-RQ-I9M" secondAttribute="trailing" id="sKo-c7-EzN"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="WcE-i7-BBA" firstAttribute="leading" secondItem="82I-Je-0qw" secondAttribute="leading" id="By5-yy-3L7"/>
+                        <constraint firstItem="WcE-i7-BBA" firstAttribute="top" secondItem="82I-Je-0qw" secondAttribute="top" id="D2c-u8-EIh"/>
+                        <constraint firstAttribute="trailing" secondItem="WcE-i7-BBA" secondAttribute="trailing" id="sRi-XF-Hbn"/>
+                        <constraint firstAttribute="bottom" secondItem="WcE-i7-BBA" secondAttribute="bottom" id="xbS-We-gwC"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="82I-Je-0qw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HZj-ga-fbr"/>
+                <constraint firstItem="82I-Je-0qw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c3X-jK-CyB"/>
+                <constraint firstItem="82I-Je-0qw" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="qFv-7K-Lb2"/>
+                <constraint firstItem="WcE-i7-BBA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="s6r-gl-cCl"/>
+                <constraint firstItem="82I-Je-0qw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="yLV-en-f8X"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="52.173913043478265" y="62.946428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heart" width="128" height="128"/>
+    </resources>
+</document>

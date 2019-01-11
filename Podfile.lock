@@ -18,6 +18,9 @@ PODS:
   - CHIPageControl/Puya (0.1.7)
   - FaveButton (3.0.0)
   - FSPagerView (0.8.1)
+  - ImageSlideshow (1.7.0):
+    - ImageSlideshow/Core (= 1.7.0)
+  - ImageSlideshow/Core (1.7.0)
   - MaterialComponents (67.0.0):
     - MaterialComponents/ActivityIndicator (= 67.0.0)
     - "MaterialComponents/ActivityIndicator+ColorThemer (= 67.0.0)"
@@ -515,6 +518,7 @@ DEPENDENCIES:
   - CHIPageControl
   - FaveButton
   - FSPagerView
+  - ImageSlideshow
   - MaterialComponents
 
 SPEC REPOS:
@@ -522,6 +526,7 @@ SPEC REPOS:
     - CHIPageControl
     - FaveButton
     - FSPagerView
+    - ImageSlideshow
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -533,6 +538,7 @@ SPEC CHECKSUMS:
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FaveButton: 1fa9cd7b037d7164e229765401931271adbe3a23
   FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
+  ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   MaterialComponents: ba0b153b1fa427be83aad80b05784b2cfecec847
   MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
@@ -540,6 +546,6 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
 
-PODFILE CHECKSUM: 2da76a76bfc7e2d4e377b9dbff7da51f654fed0d
+PODFILE CHECKSUM: 73e916eec9ffeed78ed3b972f83dd33ad8d570c1
 
 COCOAPODS: 1.5.3
