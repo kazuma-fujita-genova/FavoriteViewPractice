@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class InstitutionDetailBlockView: UIView {
     
     @IBOutlet weak var captionLabelField: UILabel!

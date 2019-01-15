@@ -8,15 +8,31 @@
 
 import UIKit
 import MapKit
+import MaterialComponents.MaterialButtons_ButtonThemer
 
 class TestViewController: UIViewController {
 
+    var offsetY:CGFloat = 0.0
+    
+    @IBOutlet weak var institutionScrollView: UIScrollView!
+    
+    private let telephoneInquiryButton: MDCButton! = {
+        let button:MDCButton = MDCButton()
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: button)
+        //button.frame = CGRect(x:0, y:0, width: 200, height: 50)
+        button.setTitle("電話でお問い合わせ", for:.normal)
+        return button
+    }()
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        institutionScrollView.delegate = self
+        
         // 緯度・経度を設定
         let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.7210914, 139.9272341)
         mapView.setCenter(location, animated: true)
@@ -39,8 +55,17 @@ class TestViewController: UIViewController {
         pin.subtitle = "渋谷区宇田川町10-2 SHIBUYA EDGE BUILD. 5F"
         mapView.addAnnotation(pin)
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:))))
+        
+        //telephoneInquiryButton.layer.position = CGPoint(x:36, y:view.bounds.height-36)
+        view.addSubview(telephoneInquiryButton)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // buttonを画面下部に固定
+        let width = (view.bounds.width-view.center.x)/2 + view.center.x
+        telephoneInquiryButton.frame = CGRect(x: view.center.x/4, y: view.frame.height-230+offsetY, width: width, height: 50)
+    }
 
     @objc func handleMapTap(sender: UITapGestureRecognizer) {
         
@@ -62,5 +87,15 @@ class TestViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension TestViewController: UIScrollViewDelegate {
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //
+        offsetY = scrollView.contentOffset.y
+        //let buttonWidth = telephoneInquiryButton.frame.width
+        //telephoneInquiryButton.frame = CGRect(x:36+scrollView.contentOffset.x, y:view.frame.height-200+scrollView.contentOffset.y, width:buttonWidth, height:50)
+    }
 }
