@@ -32,14 +32,40 @@ class FavoriteViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "かかりつけ"
         if #available(iOS 11.0, *) {
-        // Large Title
+            // Large Title TODO: 何故か効かない
             self.navigationController?.navigationBar.prefersLargeTitles = true
         }
-        //self.navigationController?.delegate = self
+        // HeroTransitionを設定
+        self.navigationController?.delegate = self
         //self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
         self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .zoom)
 
+        // self.hero.isHeroEnabled = true
+        // self.hero.isEnabled = true
+        
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //if #available(iOS 11.0, *) {
+        //self.navigationController?.navigationBar.prefersLargeTitles = true
+        //}
+        // NavigationBarを透過
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        //if #available(iOS 11.0, *) {
+        //    self.navigationController?.navigationBar.prefersLargeTitles = true
+        //}
+        // NavigationBarを元に戻す
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
     }
 
     private func setupTableView() {
@@ -56,8 +82,8 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localSource.count
-        //return 1
+        //return localSource.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,7 +114,8 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func handleInstitutionViewButton(gestureRecognizer: UITapGestureRecognizer) {
         let institutionViewController = InstitutionViewController(nibName: "InstitutionViewController", bundle: nil)
         //let institutionNavigationController = UINavigationController(rootViewController: institutionViewController)
-        
+        // 施設詳細画面は画面下部TabBar非表示
+        institutionViewController.hidesBottomBarWhenPushed = true
         // Push遷移
         self.navigationController?.show(institutionViewController, sender: nil)
         //self.navigationController?.show(institutionNavigationController, sender: nil)
@@ -110,7 +137,7 @@ extension FavoriteViewController: TableViewCellDelegate {
         }
     }
 }
-/*
+
 extension FavoriteViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
@@ -122,13 +149,6 @@ extension FavoriteViewController: UINavigationControllerDelegate {
                               animationControllerFor operation: UINavigationController.Operation,
                               from fromVC: UIViewController,
                               to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        //navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //navigationController.navigationBar.shadowImage = UIImage()
-        //toVC.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //toVC.navigationController?.navigationBar.shadowImage = UIImage()
-        
         return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
     }
 }
- */

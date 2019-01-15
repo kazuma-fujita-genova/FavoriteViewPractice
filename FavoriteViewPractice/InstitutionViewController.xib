@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstitutionViewController" customModule="FavoriteViewPractice" customModuleProvider="target">
             <connections>
-                <outlet property="favoriteButton" destination="Yui-2f-LvU" id="qv7-pW-SRt"/>
                 <outlet property="institutionNameLabelField" destination="cjU-eY-WzJ" id="Y1y-sz-ikJ"/>
+                <outlet property="institutionScrollView" destination="82I-Je-0qw" id="mYL-K7-cNv"/>
                 <outlet property="pageControl" destination="mqV-bM-SiU" id="nF6-S3-bb0"/>
                 <outlet property="pagerView" destination="ufv-RQ-I9M" id="8SH-ia-RNb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -40,20 +40,10 @@
                                                 <constraint firstAttribute="height" constant="30" id="lqO-XA-PbU"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-2f-LvU" customClass="FaveButton" customModule="FaveButton">
-                                            <rect key="frame" x="323" y="8" width="44" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="2Eu-Vc-beU"/>
-                                                <constraint firstAttribute="width" constant="44" id="mUA-1I-rFQ"/>
-                                            </constraints>
-                                            <state key="normal" title="Button" image="heart"/>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="mqV-bM-SiU" secondAttribute="bottom" id="0jQ-Zn-sjl"/>
-                                        <constraint firstItem="Yui-2f-LvU" firstAttribute="top" secondItem="ufv-RQ-I9M" secondAttribute="top" constant="8" id="1wf-w1-xul"/>
-                                        <constraint firstAttribute="trailing" secondItem="Yui-2f-LvU" secondAttribute="trailing" constant="8" id="CRb-vF-xbY"/>
                                         <constraint firstAttribute="trailing" secondItem="mqV-bM-SiU" secondAttribute="trailing" id="JAJ-md-vSr"/>
                                         <constraint firstItem="mqV-bM-SiU" firstAttribute="leading" secondItem="ufv-RQ-I9M" secondAttribute="leading" id="mMD-4n-Ut5"/>
                                         <constraint firstAttribute="width" secondItem="ufv-RQ-I9M" secondAttribute="height" multiplier="4:3" id="thO-x7-NWH"/>
@@ -125,7 +115,4 @@
             <point key="canvasLocation" x="52" y="62.807881773399018"/>
         </view>
     </objects>
-    <resources>
-        <image name="heart" width="128" height="128"/>
-    </resources>
 </document>
