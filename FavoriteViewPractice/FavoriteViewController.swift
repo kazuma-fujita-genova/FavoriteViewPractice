@@ -18,12 +18,17 @@ class FavoriteViewController: UIViewController {
     @IBOutlet weak var favoriteTableView: UITableView!
     
     let photos = ["3","4","5","6","7"]
+    let defaultPhoto = ["1"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = "かかりつけ"
+        if #available(iOS 11.0, *) {
+        // Large Title
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
         setupTableView()
     }
 
@@ -49,17 +54,28 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = favoriteTableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! FavoriteTableViewCell
         cell.delegate = self
-        // 画像を設定
-        cell.photos = self.photos
+        
+        // TODO: とりあえず2セル分は複数画像
+        if 2 > indexPath.row {
+            // 画像を設定
+            cell.photos = self.photos
+            cell.pagerView.isInfinite = true
+            cell.lastRceptionStackView.isHidden = true
+        } else {
+            // 画像1枚の時の処理
+            cell.photos = self.defaultPhoto
+            cell.pagerView.isInfinite = false
+            cell.lastRceptionStackView.isHidden = false
+        }
         // TODO: セルの背景色をランダムに設定する。（後で削除）
         // cell.backgroundColor = UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
-
+        
         return cell
     }
 }
 
 // MARK: - CollectionCellDelegate
-extension FavoriteViewController: CollectionCellDelegate {
+extension FavoriteViewController: TableViewCellDelegate {
     
     func faveButton(_ cell: FavoriteTableViewCell, faveButton: FaveButton, didSelected selected: Bool) {
         // TODO: お気に入りボタンタップ処理
@@ -72,4 +88,3 @@ extension FavoriteViewController: CollectionCellDelegate {
         }
     }
 }
-

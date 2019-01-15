@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		61ACFC5E3E34CBFCE14C3228 /* Pods_FavoriteViewPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638A961BBD93477088A1054 /* Pods_FavoriteViewPractice.framework */; };
+		A45B955021E6E16D008FB883 /* BorderTopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B954F21E6E16D008FB883 /* BorderTopStackView.swift */; };
+		A45B955221E6EBF5008FB883 /* InstitutionDetailBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B955121E6EBF5008FB883 /* InstitutionDetailBlockView.swift */; };
+		A45B955421E6EC8B008FB883 /* InstitutionDetailBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45B955321E6EC8B008FB883 /* InstitutionDetailBlockView.xib */; };
+		A45B955721E6F839008FB883 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B955521E6F839008FB883 /* TestViewController.swift */; };
+		A45B955821E6F839008FB883 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45B955621E6F839008FB883 /* TestViewController.xib */; };
+		A48D7AE821E317F4007BDC33 /* MDCCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D7AE721E317F4007BDC33 /* MDCCustomTextField.swift */; };
+		A48D7AEB21E335F1007BDC33 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D7AE921E335F1007BDC33 /* InstitutionViewController.swift */; };
+		A48D7AEC21E335F1007BDC33 /* InstitutionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48D7AEA21E335F1007BDC33 /* InstitutionViewController.xib */; };
 		A4F19B8A21D4B67500EE9E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F19B8921D4B67500EE9E98 /* AppDelegate.swift */; };
 		A4F19B8F21D4B67500EE9E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F19B8D21D4B67500EE9E98 /* Main.storyboard */; };
 		A4F19B9121D4B67700EE9E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F19B9021D4B67700EE9E98 /* Assets.xcassets */; };
@@ -21,8 +29,16 @@
 /* Begin PBXFileReference section */
 		07ABDB54E143A7CD3352D15D /* Pods-FavoriteViewPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteViewPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice.release.xcconfig"; sourceTree = "<group>"; };
 		3D35C2C389034946D7FFDDB8 /* Pods-FavoriteViewPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteViewPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteViewPractice/Pods-FavoriteViewPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		A45B954F21E6E16D008FB883 /* BorderTopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTopStackView.swift; sourceTree = "<group>"; };
+		A45B955121E6EBF5008FB883 /* InstitutionDetailBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDetailBlockView.swift; sourceTree = "<group>"; };
+		A45B955321E6EC8B008FB883 /* InstitutionDetailBlockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstitutionDetailBlockView.xib; sourceTree = "<group>"; };
+		A45B955521E6F839008FB883 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		A45B955621E6F839008FB883 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		A47141C621D5FA43004AB662 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		A47141C721D5FA43004AB662 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A48D7AE721E317F4007BDC33 /* MDCCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCCustomTextField.swift; sourceTree = "<group>"; };
+		A48D7AE921E335F1007BDC33 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		A48D7AEA21E335F1007BDC33 /* InstitutionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstitutionViewController.xib; sourceTree = "<group>"; };
 		A4F19B8621D4B67500EE9E98 /* FavoriteViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F19B8921D4B67500EE9E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F19B8E21D4B67500EE9E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +81,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A45B954E21E6DC2F008FB883 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				A45B954F21E6E16D008FB883 /* BorderTopStackView.swift */,
+				A45B955121E6EBF5008FB883 /* InstitutionDetailBlockView.swift */,
+				A45B955321E6EC8B008FB883 /* InstitutionDetailBlockView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		A4F19B7D21D4B67500EE9E98 = {
 			isa = PBXGroup;
 			children = (
@@ -86,8 +112,11 @@
 		A4F19B8821D4B67500EE9E98 /* FavoriteViewPractice */ = {
 			isa = PBXGroup;
 			children = (
+				A45B954E21E6DC2F008FB883 /* CustomViews */,
 				A4F19B8921D4B67500EE9E98 /* AppDelegate.swift */,
 				A4F19B9B21D4B6FA00EE9E98 /* TabBarViewController.swift */,
+				A48D7AE921E335F1007BDC33 /* InstitutionViewController.swift */,
+				A48D7AEA21E335F1007BDC33 /* InstitutionViewController.xib */,
 				A4F19B8D21D4B67500EE9E98 /* Main.storyboard */,
 				A4F19B9021D4B67700EE9E98 /* Assets.xcassets */,
 				A4F19B9221D4B67700EE9E98 /* LaunchScreen.storyboard */,
@@ -95,6 +124,9 @@
 				A4F19B9D21D4B74200EE9E98 /* FavoriteViewController.swift */,
 				A4F19B9F21D4B84400EE9E98 /* FavoriteTableViewCell.swift */,
 				A4F19BA021D4B84400EE9E98 /* FavoriteTableViewCell.xib */,
+				A48D7AE721E317F4007BDC33 /* MDCCustomTextField.swift */,
+				A45B955521E6F839008FB883 /* TestViewController.swift */,
+				A45B955621E6F839008FB883 /* TestViewController.xib */,
 			);
 			path = FavoriteViewPractice;
 			sourceTree = "<group>";
@@ -160,8 +192,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F19B9421D4B67700EE9E98 /* LaunchScreen.storyboard in Resources */,
+				A48D7AEC21E335F1007BDC33 /* InstitutionViewController.xib in Resources */,
 				A4F19BA221D4B84400EE9E98 /* FavoriteTableViewCell.xib in Resources */,
 				A4F19B9121D4B67700EE9E98 /* Assets.xcassets in Resources */,
+				A45B955421E6EC8B008FB883 /* InstitutionDetailBlockView.xib in Resources */,
+				A45B955821E6F839008FB883 /* TestViewController.xib in Resources */,
 				A4F19B8F21D4B67500EE9E98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +216,7 @@
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
@@ -195,6 +231,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
@@ -238,8 +275,13 @@
 			files = (
 				A4F19B9C21D4B6FA00EE9E98 /* TabBarViewController.swift in Sources */,
 				A4F19BA121D4B84400EE9E98 /* FavoriteTableViewCell.swift in Sources */,
+				A45B955021E6E16D008FB883 /* BorderTopStackView.swift in Sources */,
 				A4F19B9E21D4B74200EE9E98 /* FavoriteViewController.swift in Sources */,
+				A45B955221E6EBF5008FB883 /* InstitutionDetailBlockView.swift in Sources */,
 				A4F19B8A21D4B67500EE9E98 /* AppDelegate.swift in Sources */,
+				A48D7AE821E317F4007BDC33 /* MDCCustomTextField.swift in Sources */,
+				A45B955721E6F839008FB883 /* TestViewController.swift in Sources */,
+				A48D7AEB21E335F1007BDC33 /* InstitutionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

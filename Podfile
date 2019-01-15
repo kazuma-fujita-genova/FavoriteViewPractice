@@ -8,6 +8,7 @@ def install_pods
   pod 'CHIPageControl'
   pod 'FaveButton'
   pod 'MaterialComponents'
+  pod 'ImageSlideshow'
 end
 
 target 'FavoriteViewPractice' do

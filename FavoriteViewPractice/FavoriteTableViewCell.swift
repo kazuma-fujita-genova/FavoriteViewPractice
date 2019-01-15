@@ -22,7 +22,7 @@ class FavoriteTableViewCell: UITableViewCell {
     var photos = ["1"]
     
     // VC内で呼ばれるCell拡張Delegate
-    weak var delegate: CollectionCellDelegate?
+    weak var delegate: TableViewCellDelegate?
     
     @IBOutlet weak var favoriteButton: FaveButton!
     
@@ -68,25 +68,60 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var institutionLabelField: UILabel! {
         didSet {
             self.institutionLabelField.adjustsFontSizeToFitWidth = true
-            self.institutionLabelField.font = UIFont.boldSystemFont(ofSize: 24)
+            self.institutionLabelField.font = UIFont.boldSystemFont(ofSize: 22)
         }
     }
     
     @IBOutlet weak var localIdTextField: MDCTextField! {
         didSet {
+            // 10キー表示
+            self.localIdTextField.keyboardType = UIKeyboardType.numberPad
+
             let fieldController = MDCTextInputControllerUnderline(textInput: self.localIdTextField)
             fieldController.placeholderText = "診察券番号"
+            fieldController.floatingPlaceholderScale = 0.9
+            fieldController.textInputFont = UIFont.systemFont(ofSize: 17)
+            fieldController.inlinePlaceholderFont = UIFont.systemFont(ofSize: 17)
+            fieldController.floatingPlaceholderActiveColor = UIColor.init(red: 58/255, green: 158/255, blue: 210/255, alpha: 100/100)
+            fieldController.textInputClearButtonTintColor = .lightGray
             self.allTextFieldControllers.append(fieldController)
+            
+            // self.localIdTextField.delegate = self
+            // self.localIdTextField.frame = CGRect(x: 0, y: 0, width: 190, height: 20)
         }
     }
     
     @IBOutlet weak var reserveDateTextField: MDCTextField! {
         didSet {
+            // キャレット非表示
+            // self.reserveDateTextField.tintColor = .clear
+            // self.reserveDateTextField.delegate = self
+
             let fieldController = MDCTextInputControllerUnderline(textInput: self.reserveDateTextField)
             fieldController.placeholderText = "次回予約日時メモ"
+            fieldController.floatingPlaceholderScale = 0.9
+            fieldController.textInputFont = UIFont.systemFont(ofSize: 17)
+            fieldController.inlinePlaceholderFont = UIFont.systemFont(ofSize: 17)
+            //fieldController.color
+            fieldController.floatingPlaceholderActiveColor = UIColor.init(red: 58/255, green: 158/255, blue: 210/255, alpha: 100/100)
+            fieldController.textInputClearButtonTintColor = .lightGray
             self.allTextFieldControllers.append(fieldController)
+            
         }
     }
+    
+    @IBOutlet weak var lastRceptionStackView: UIStackView!
+    
+    @IBOutlet weak var lastReceptionCaptionLabelField: UILabel! {
+        didSet {
+            self.lastReceptionCaptionLabelField.font = UIFont.systemFont(ofSize: 15)
+            self.lastReceptionCaptionLabelField.textColor = .gray
+        }
+    }
+    
+    @IBOutlet weak var lastRceptionLabelField: UILabel!
+    
+    
     /* TODO: awakeFromNib中で設定しないとキーボードがセットできない。調査
     var reserveDatePicker: UIDatePicker! {
         didSet {
@@ -141,7 +176,6 @@ class FavoriteTableViewCell: UITableViewCell {
         
         pagerView.addSubview(pageControl)
         pagerView.addSubview(favoriteButton)
-
     }
     
     // Done
@@ -159,8 +193,8 @@ class FavoriteTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: - CollectionCellDelegate
-protocol CollectionCellDelegate: class {
+// MARK: - TableViewCellDelegate
+protocol TableViewCellDelegate: class {
     // VC内で呼ばれるFaveButtonDelegate拡張メソッド
     func faveButton(_ cell: FavoriteTableViewCell, faveButton: FaveButton, didSelected selected: Bool)
 }
@@ -207,3 +241,19 @@ extension FavoriteTableViewCell: FSPagerViewDataSource, FSPagerViewDelegate {
         pageControl.set(progress: pagerView.currentIndex, animated: true)
     }
 }
+
+/*
+extension FavoriteTableViewCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        localIdTextField.resignFirstResponder()
+        reserveDateTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        localIdTextField.resignFirstResponder()
+        reserveDateTextField.resignFirstResponder()
+    }
+}
+*/
