@@ -184,26 +184,49 @@ extension InstitutionViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
+        /*
         offsetY = scrollView.contentOffset.y
 
         let alphaVlue = (offsetY + topSafeAreaHeight) / pagerViewHeght
         print(alphaVlue)
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: alphaVlue)
-        //self.navigationController?.navigationBar.isTranslucent = true
-        if pagerViewHeght > offsetY {
-            // NavigationBarを透過
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.title = ""
-            //self.navigationController?.navigationBar.backgroundColor = nil
+        */
+        
+        offsetY = scrollView.contentOffset.y
+        let topSafeAreaHeight = self.view.safeAreaInsets.top
+        let pagerViewHeght = pagerView.bounds.height
+        print("y = \(offsetY) sh = \(topSafeAreaHeight) ph = \(pagerViewHeght)")
+        let changeHeight = pagerViewHeght/2
+        var alphaVlue = (offsetY - changeHeight) / changeHeight
+
+        if alphaVlue < 0 {
+            alphaVlue = 0
+        }
+        else if alphaVlue > 1 {
+            alphaVlue = 1
         }
         else {
-            // NavigationBarをもとに戻す
-            self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-            self.title = institutionNameLabelField.text
-            //self.navigationController?.navigationBar.shadowImage = nil
-            //self.navigationController?.navigationBar.backgroundColor = .white
+            alphaVlue *= 2
         }
+        
+        print(alphaVlue)
+        let backgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: alphaVlue), size: CGSize(width: 1, height: 1))
+        self.navigationController?.navigationBar.setBackgroundImage(backgroundImage, for: .default)
+        // スクロール量に応じてタイトルをnavigationBarに設定
+        self.title = pagerViewHeght-topSafeAreaHeight/2 > offsetY ? "" : institutionNameLabelField.text
+    }
+}
 
+extension UIImage {
+    class func colorImage(color: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }
