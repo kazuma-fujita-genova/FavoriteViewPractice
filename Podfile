@@ -4,8 +4,9 @@ platform :ios, '12.0'
 use_frameworks!
 
 def install_pods
-  pod 'FSPagerView'
+  # pod 'FSPagerView'
   pod 'CHIPageControl'
+  pod 'Hero'
   pod 'FaveButton'
   pod 'MaterialComponents'
   pod 'ImageSlideshow'

@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import FSPagerView
+// import FSPagerView
 import CHIPageControl
 import FaveButton
+import ImageSlideshow
 
 import MaterialComponents.MaterialTextFields
 
@@ -19,13 +20,13 @@ class FavoriteTableViewCell: UITableViewCell {
     var allTextFieldControllers = [MDCTextInputControllerUnderline]()
     
     // TODO: デフォルト表示用ダミー画像を設定
-    var photos = ["1"]
+    // var photos = ["1"]
     
     // VC内で呼ばれるCell拡張Delegate
     weak var delegate: TableViewCellDelegate?
     
     @IBOutlet weak var favoriteButton: FaveButton!
-    
+    /*
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             // 再利用する画像PagerViewCell設定
@@ -43,6 +44,26 @@ class FavoriteTableViewCell: UITableViewCell {
             // pagerView.transformer = FSPagerViewTransformer(type: .zoomOut)
             self.pagerView.itemSize = FSPagerView.automaticSize
             self.pagerView.decelerationDistance = 1
+        }
+    }
+    */
+    @IBOutlet weak var pagerView: ImageSlideshow! {
+        didSet {
+            // 画像登録
+            // pagerView.setImageInputs(localSource)
+            // 4:3比率を保持したまま拡大表示
+            pagerView.contentScaleMode = UIView.ContentMode.scaleAspectFill
+            // ピンチで画像拡大表示
+            // pagerView.zoomEnabled = true
+            // pageControl設定
+            pagerView.currentPageChanged = { page in
+                self.pageControl.set(progress: page, animated: true)
+            }
+            // 全画面表示処理
+            // let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+            // pagerView.addGestureRecognizer(recognizer)
+            // ページインジケーターとお気に入りボタンをセット
+            pagerView.addSubview(pageControl)
         }
     }
     
@@ -170,11 +191,11 @@ class FavoriteTableViewCell: UITableViewCell {
         // UIToolbarをキーボードに設定
         reserveDateTextField.inputAccessoryView = toolbar
         
-        pagerView.dataSource = self
-        pagerView.delegate = self
+        // pagerView.dataSource = self
+        // pagerView.delegate = self
         favoriteButton.delegate = self
         
-        pagerView.addSubview(pageControl)
+        // pagerView.addSubview(pageControl)
         pagerView.addSubview(favoriteButton)
     }
     
@@ -209,6 +230,7 @@ extension FavoriteTableViewCell: FaveButtonDelegate {
 
 // 画像カルーセル処理。UI部分のみなのでCell内で実装
 // MARK: - FSPagerViewDataSource, FSPagerViewDelegate
+/*
 extension FavoriteTableViewCell: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -241,7 +263,7 @@ extension FavoriteTableViewCell: FSPagerViewDataSource, FSPagerViewDelegate {
         pageControl.set(progress: pagerView.currentIndex, animated: true)
     }
 }
-
+*/
 /*
 extension FavoriteTableViewCell: UITextFieldDelegate {
     

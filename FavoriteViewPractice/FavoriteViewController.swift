@@ -8,6 +8,8 @@
 
 import UIKit
 import FaveButton
+import ImageSlideshow
+import Hero
 import MaterialComponents.MaterialSnackbar
 import MaterialComponents.MaterialSnackbar_ColorThemer
 import MaterialComponents.MaterialSnackbar_TypographyThemer
@@ -16,9 +18,13 @@ import MaterialComponents.MaterialSnackbar_TypographyThemer
 class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var favoriteTableView: UITableView!
+    fileprivate let heroTransition = HeroTransition()
     
-    let photos = ["3","4","5","6","7"]
-    let defaultPhoto = ["1"]
+    // let photos = ["3","4","5","6","7"]
+    // let defaultPhoto = ["1"]
+    let localSource = [ImageSource(imageString: "1")!, ImageSource(imageString: "2")!, ImageSource(imageString: "3")!, ImageSource(imageString: "4")!, ImageSource(imageString: "5")!]
+    
+    let defaultLocalSource = [ImageSource(imageString: "1")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +33,12 @@ class FavoriteViewController: UIViewController {
         self.title = "かかりつけ"
         if #available(iOS 11.0, *) {
         // Large Title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationController?.navigationBar.prefersLargeTitles = true
         }
+        //self.navigationController?.delegate = self
+        //self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
+        self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .zoom)
+
         setupTableView()
     }
 
@@ -46,7 +56,7 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
+        return localSource.count
         //return 1
     }
     
@@ -58,19 +68,31 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         // TODO: とりあえず2セル分は複数画像
         if 2 > indexPath.row {
             // 画像を設定
-            cell.photos = self.photos
-            cell.pagerView.isInfinite = true
+            cell.pagerView.setImageInputs(localSource)
+            // cell.photos = self.photos
+            // cell.pagerView.isInfinite = true
             cell.lastRceptionStackView.isHidden = true
         } else {
             // 画像1枚の時の処理
-            cell.photos = self.defaultPhoto
-            cell.pagerView.isInfinite = false
+            // cell.photos = self.defaultPhoto
+            cell.pagerView.setImageInputs(defaultLocalSource)
+            // cell.pagerView.isInfinite = false
             cell.lastRceptionStackView.isHidden = false
         }
         // TODO: セルの背景色をランダムに設定する。（後で削除）
         // cell.backgroundColor = UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
-        
+        cell.pagerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleInstitutionViewButton(gestureRecognizer:))))
         return cell
+    }
+    
+    @objc func handleInstitutionViewButton(gestureRecognizer: UITapGestureRecognizer) {
+        let institutionViewController = InstitutionViewController(nibName: "InstitutionViewController", bundle: nil)
+        //let institutionNavigationController = UINavigationController(rootViewController: institutionViewController)
+        
+        // Push遷移
+        self.navigationController?.show(institutionViewController, sender: nil)
+        //self.navigationController?.show(institutionNavigationController, sender: nil)
+        //self.present(institutionViewController, animated: true, completion: nil)
     }
 }
 
@@ -88,3 +110,25 @@ extension FavoriteViewController: TableViewCellDelegate {
         }
     }
 }
+/*
+extension FavoriteViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
+        -> UIViewControllerInteractiveTransitioning? {
+            return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
+    }
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationController.Operation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        //navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        //navigationController.navigationBar.shadowImage = UIImage()
+        //toVC.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        //toVC.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
+    }
+}
+ */

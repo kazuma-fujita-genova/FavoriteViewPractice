@@ -22,8 +22,8 @@ class TabBarViewController: UITabBarController {
         // UIチェック用
         let testViewController = TestViewController(nibName: "TestViewController", bundle: nil)
         let testRootViewController = UINavigationController(rootViewController: testViewController)
-        // setViewControllers([rootViewController, testRootViewController, institutionRootViewController], animated: false)
-        setViewControllers([testRootViewController, institutionRootViewController], animated: false)
+        setViewControllers([rootViewController, testRootViewController, institutionRootViewController], animated: false)
+        // setViewControllers([testRootViewController, institutionRootViewController], animated: false)
     }
 }
 

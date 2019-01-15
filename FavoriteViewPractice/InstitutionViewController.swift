@@ -76,9 +76,14 @@ class InstitutionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = ""
+        // self.title = ""
         //pagerView.addSubview(pageControl)
         //pagerView.setImageInputs(localSource)
+        
+        if #available(iOS 11.0, *) {
+            // Large Title
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+        }
         pagerView.addSubview(favoriteButton)
     }
     
