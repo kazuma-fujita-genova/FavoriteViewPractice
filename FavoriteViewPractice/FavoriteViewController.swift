@@ -40,12 +40,15 @@ class FavoriteViewController: UIViewController {
         //self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
         self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .zoom)
 
+        // 遷移先の戻るボタンテキスト非表示
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButton
         // self.hero.isHeroEnabled = true
         // self.hero.isEnabled = true
         
         setupTableView()
     }
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -67,6 +70,7 @@ class FavoriteViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationController?.navigationBar.shadowImage = nil
     }
+    */
 
     private func setupTableView() {
         favoriteTableView.register(UINib(nibName: "FavoriteTableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")

@@ -14,18 +14,49 @@ import Hero
 import MaterialComponents.MaterialSnackbar
 import MaterialComponents.MaterialSnackbar_ColorThemer
 import MaterialComponents.MaterialSnackbar_TypographyThemer
+import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_ButtonThemer
 
 class InstitutionViewController: UIViewController {
     
+    var pastAlphaValue:CGFloat = 0.0
+    var navigationBackgroundImage = UIImage()
+    var navigationWhiteBackgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: 1), size: CGSize(width: 1, height: 1))
+    
     @IBOutlet weak var institutionScrollView: UIScrollView!
     
+    /*
     private let telephoneInquiryButton: MDCButton! = {
         let button:MDCButton = MDCButton()
         let buttonScheme = MDCButtonScheme()
         MDCContainedButtonThemer.applyScheme(buttonScheme, to: button)
         //button.frame = CGRect(x:0, y:0, width: 200, height: 50)
         button.setTitle("電話でお問い合わせ", for:.normal)
+        return button
+    }()
+    */
+    
+    private let telephoneInquiryButton: MDCFloatingButton! = {
+        let button:MDCFloatingButton = MDCFloatingButton(frame: CGRect(x:0, y:0, width: 50, height: 50))
+        // let button:MDCFloatingButton = MDCFloatingButton()
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: button)
+        // button.setTitle("電話でお問い合わせ", for:.normal)
+        // button.setContentEdgeInsets(UIEdgeInsets(top: 40, left: 40, bottom: 0, right: 0), for: MDCFloatingButtonShape.default, in: MDCFloatingButtonMode.normal)
+        button.sizeToFit()
+        //button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "favorite"), for: .normal)
+        // button.accessibilityLabel = "Tel"
+        // button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        // 角丸設定
+        // button.layer.cornerRadius = 1
+        button.layer.masksToBounds = true
+        // 影の設定
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 5
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
         return button
     }()
     
@@ -111,6 +142,12 @@ class InstitutionViewController: UIViewController {
         // pagerView.addSubview(favoriteButton)
         // 電話でお問い合わせボタン設置
         view.addSubview(telephoneInquiryButton)
+        
+        // let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(pagerViewSwiped))
+         // number of fingers
+        // swipeGesture.numberOfTouchesRequired = 1
+        // swipeGesture.direction = [.down]
+        // pagerView.addGestureRecognizer(swipeGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,9 +156,10 @@ class InstitutionViewController: UIViewController {
         //if #available(iOS 11.0, *) {
             //self.navigationController?.navigationBar.prefersLargeTitles = true
         //}
-        // NavigationBarを透過
+        // navigationBarを透過
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        // navigationBar文字色設定
         self.navigationController?.navigationBar.tintColor = .black
     }
     
@@ -135,12 +173,25 @@ class InstitutionViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationController?.navigationBar.shadowImage = nil
     }
+    /*
+    @objc func pagerViewSwiped(recognizer: UISwipeGestureRecognizer) {
+        
+        switch recognizer.direction {
+        case .down:
+            // 下
+            print("down")
+        default:
+            // その他
+            print("other")
+            break
+        }
+    }
+    */
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // 電話でお問い合わせボタンを画面下部に固定
-        let width = (view.bounds.width-view.center.x)/2 + view.center.x
-        telephoneInquiryButton.frame = CGRect(x: view.center.x/4, y: view.frame.height-100+offsetY, width: width, height: 50)
+        telephoneInquiryButton.frame = CGRect(x: view.bounds.width - view.bounds.width/4, y: view.bounds.height-100+offsetY, width: telephoneInquiryButton.bounds.width, height: telephoneInquiryButton.bounds.height)
     }
     
     @objc func didTap() {
@@ -175,36 +226,53 @@ extension InstitutionViewController: FaveButtonDelegate {
 extension InstitutionViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        /*
-        offsetY = scrollView.contentOffset.y
-
-        let alphaVlue = (offsetY + topSafeAreaHeight) / pagerViewHeght
-        print(alphaVlue)
-        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: alphaVlue)
-        */
         
+        // 架電ボタン固定の為スクロール量を保存
         offsetY = scrollView.contentOffset.y
+        // 画像エリアの高さ取得
         let pagerViewHeight = pagerView.bounds.height
-        let navigationBarHeight = (self.navigationController?.navigationBar.bounds.height)!
-        print("y = \(offsetY) ph = \(pagerViewHeight)")
+        // フェード開始ポイント
         let changeHeight = pagerViewHeight/2
-        var alphaVlue = (offsetY - changeHeight) / changeHeight
-
-        if alphaVlue < 0 {
-            alphaVlue = 0
-        }
-        else if alphaVlue > 1 {
-            alphaVlue = 1
-        }
-        else {
-            alphaVlue *= 2
+        // 透過値を小数点第二位四捨五入の為*10の後/10
+        let originalAlphaValue = (((offsetY - changeHeight) / changeHeight)*2)*10
+        let alphaValue = round(originalAlphaValue) / 10
+        
+        print(offsetY)
+        
+        
+        if 0 > offsetY {
+            // ScrollView画面上部固定 TODO: ScrollViewを固定すると画像エリアが拡大表示にならない
+            institutionScrollView.frame = CGRect(x: 0, y: 0, width: institutionScrollView.frame.width, height: institutionScrollView.frame.height)
+            // 画像エリアスクロール量に応じて拡大処理
+            var headerTransform = CATransform3DIdentity
+            let headerScaleFactor = -(offsetY) / pagerViewHeight
+            let headerSizevariation = ((pagerViewHeight * (1.0 + headerScaleFactor)) - pagerViewHeight) / 2.0
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+            pagerView.layer.transform = headerTransform
         }
         
-        print(alphaVlue)
-        let backgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: alphaVlue), size: CGSize(width: 1, height: 1))
-        self.navigationController?.navigationBar.setBackgroundImage(backgroundImage, for: .default)
+        
+        // print(alphaValue)
+        if 0 >= alphaValue {
+            // 画像エリア内は透過画像設定
+            navigationBackgroundImage = UIImage()
+        }
+        else if 1 > alphaValue && alphaValue > 0 {
+            if alphaValue != pastAlphaValue {
+                // 段階的に透過白画像生成
+                navigationBackgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: alphaValue), size: CGSize(width: 1, height: 1))
+                pastAlphaValue = alphaValue
+            }
+        }
+        else if alphaValue >= 1 {
+            // 画像エリアを超えたら固定白画像設定
+            navigationBackgroundImage = navigationWhiteBackgroundImage
+        }
+        // 透過画像をnavigationBarにセット
+        self.navigationController?.navigationBar.setBackgroundImage(navigationBackgroundImage, for: .default)
         // スクロール量に応じてタイトルをnavigationBarに設定
+        let navigationBarHeight = (self.navigationController?.navigationBar.bounds.height)!
         self.title = pagerViewHeight-navigationBarHeight > offsetY ? "" : institutionNameLabelField.text
     }
 }
