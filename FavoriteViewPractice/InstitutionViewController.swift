@@ -20,10 +20,6 @@ class InstitutionViewController: UIViewController {
     
     @IBOutlet weak var institutionScrollView: UIScrollView!
     
-    var topSafeAreaHeight:CGFloat = 0.0
-    var navigationBarHeight:CGFloat = 0.0
-    var pagerViewHeght:CGFloat = 0.0
-    
     private let telephoneInquiryButton: MDCButton! = {
         let button:MDCButton = MDCButton()
         let buttonScheme = MDCButtonScheme()
@@ -145,10 +141,6 @@ class InstitutionViewController: UIViewController {
         // 電話でお問い合わせボタンを画面下部に固定
         let width = (view.bounds.width-view.center.x)/2 + view.center.x
         telephoneInquiryButton.frame = CGRect(x: view.center.x/4, y: view.frame.height-100+offsetY, width: width, height: 50)
-        // NavigationBarのFade処理で使用
-        topSafeAreaHeight = self.view.safeAreaInsets.top
-        pagerViewHeght = pagerView.bounds.height
-        
     }
     
     @objc func didTap() {
@@ -193,10 +185,10 @@ extension InstitutionViewController: UIScrollViewDelegate {
         */
         
         offsetY = scrollView.contentOffset.y
-        let topSafeAreaHeight = self.view.safeAreaInsets.top
-        let pagerViewHeght = pagerView.bounds.height
-        print("y = \(offsetY) sh = \(topSafeAreaHeight) ph = \(pagerViewHeght)")
-        let changeHeight = pagerViewHeght/2
+        let pagerViewHeight = pagerView.bounds.height
+        let navigationBarHeight = (self.navigationController?.navigationBar.bounds.height)!
+        print("y = \(offsetY) ph = \(pagerViewHeight)")
+        let changeHeight = pagerViewHeight/2
         var alphaVlue = (offsetY - changeHeight) / changeHeight
 
         if alphaVlue < 0 {
@@ -213,7 +205,7 @@ extension InstitutionViewController: UIScrollViewDelegate {
         let backgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: alphaVlue), size: CGSize(width: 1, height: 1))
         self.navigationController?.navigationBar.setBackgroundImage(backgroundImage, for: .default)
         // スクロール量に応じてタイトルをnavigationBarに設定
-        self.title = pagerViewHeght-topSafeAreaHeight/2 > offsetY ? "" : institutionNameLabelField.text
+        self.title = pagerViewHeight-navigationBarHeight > offsetY ? "" : institutionNameLabelField.text
     }
 }
 
