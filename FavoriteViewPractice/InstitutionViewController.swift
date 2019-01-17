@@ -19,6 +19,11 @@ import MaterialComponents.MaterialButtons_ButtonThemer
 
 class InstitutionViewController: UIViewController {
     
+    
+    @IBOutlet weak var institutionStackView: UIStackView!
+    
+    @IBOutlet weak var pagerViewConstraint: NSLayoutConstraint!
+    
     var pastAlphaValue:CGFloat = 0.0
     var navigationBackgroundImage = UIImage()
     var navigationWhiteBackgroundImage = UIImage.colorImage(color: UIColor(red: 1, green: 1, blue: 1, alpha: 1), size: CGSize(width: 1, height: 1))
@@ -129,7 +134,8 @@ class InstitutionViewController: UIViewController {
         institutionScrollView.delegate = self
         // SafeAreaのAutoLayout処理を解除(pagerViewをSafeAreaまで表示)
         institutionScrollView.contentInsetAdjustmentBehavior = .never
-        
+        // バウンス処理を解除 TODO: 画像スワイプ引き下げ拡大処理を入れる場合以下は有効
+        institutionScrollView.bounces = false
         //let button = FaveButton(frame: CGRect(x:0, y:0, width: 35, height: 35),faveIconNormal: UIImage(named: "heart"))
         // let barButtonItem = UIBarButtonItem(image: UIImage(named: "heart.png"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(handleReturnButton(_:forEvent:)))
         //button.addTarget(self, action: #selector(handleReturnButton(_:forEvent:)), for:UIControl.Event.touchDown)
@@ -237,13 +243,11 @@ extension InstitutionViewController: UIScrollViewDelegate {
         let originalAlphaValue = (((offsetY - changeHeight) / changeHeight)*2)*10
         let alphaValue = round(originalAlphaValue) / 10
         
-        print(offsetY)
-        
-        
+        // print(offsetY)
+        /* 画像エリアスクロール量に応じて拡大処理
         if 0 > offsetY {
             // ScrollView画面上部固定 TODO: ScrollViewを固定すると画像エリアが拡大表示にならない
-            institutionScrollView.frame = CGRect(x: 0, y: 0, width: institutionScrollView.frame.width, height: institutionScrollView.frame.height)
-            // 画像エリアスクロール量に応じて拡大処理
+            // institutionScrollView.frame = CGRect(x: 0, y: 0, width: institutionScrollView.frame.width, height: institutionScrollView.frame.height)
             var headerTransform = CATransform3DIdentity
             let headerScaleFactor = -(offsetY) / pagerViewHeight
             let headerSizevariation = ((pagerViewHeight * (1.0 + headerScaleFactor)) - pagerViewHeight) / 2.0
@@ -251,9 +255,9 @@ extension InstitutionViewController: UIScrollViewDelegate {
             headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
             pagerView.layer.transform = headerTransform
         }
-        
-        
+        */
         // print(alphaValue)
+        
         if 0 >= alphaValue {
             // 画像エリア内は透過画像設定
             navigationBackgroundImage = UIImage()
