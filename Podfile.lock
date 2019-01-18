@@ -17,6 +17,7 @@ PODS:
   - CHIPageControl/Paprika (0.1.7)
   - CHIPageControl/Puya (0.1.7)
   - FaveButton (3.0.0)
+  - FDFullscreenPopGesture (1.1)
   - Hero (1.4.0)
   - ImageSlideshow (1.7.0):
     - ImageSlideshow/Core (= 1.7.0)
@@ -517,6 +518,7 @@ PODS:
 DEPENDENCIES:
   - CHIPageControl
   - FaveButton
+  - FDFullscreenPopGesture
   - Hero
   - ImageSlideshow
   - MaterialComponents
@@ -525,6 +527,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CHIPageControl
     - FaveButton
+    - FDFullscreenPopGesture
     - Hero
     - ImageSlideshow
     - MaterialComponents
@@ -537,6 +540,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FaveButton: 1fa9cd7b037d7164e229765401931271adbe3a23
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   MaterialComponents: ba0b153b1fa427be83aad80b05784b2cfecec847
@@ -546,6 +550,6 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
 
-PODFILE CHECKSUM: 51f7ac254a6f5c4f767901a9537e2e9c5f590ac3
+PODFILE CHECKSUM: b5c2d7b893e370a88a122830ea1902684c6e40f1
 
 COCOAPODS: 1.5.3

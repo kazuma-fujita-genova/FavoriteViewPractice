@@ -10,6 +10,7 @@ import UIKit
 import FaveButton
 import ImageSlideshow
 import Hero
+import FDFullscreenPopGesture
 import MaterialComponents.MaterialSnackbar
 import MaterialComponents.MaterialSnackbar_ColorThemer
 import MaterialComponents.MaterialSnackbar_TypographyThemer
@@ -39,13 +40,14 @@ class FavoriteViewController: UIViewController {
         self.navigationController?.delegate = self
         //self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
         self.navigationController?.hero.navigationAnimationType = .autoReverse(presenting: .zoom)
+        // 遷移先の画面から右スワイプで戻る処理
+        self.navigationController?.fd_fullscreenPopGestureRecognizer.isEnabled = true
 
         // 遷移先の戻るボタンテキスト非表示
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backButton
         // self.hero.isHeroEnabled = true
         // self.hero.isEnabled = true
-        
         setupTableView()
     }
     /*

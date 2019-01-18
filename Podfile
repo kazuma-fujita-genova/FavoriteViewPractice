@@ -10,6 +10,7 @@ def install_pods
   pod 'FaveButton'
   pod 'MaterialComponents'
   pod 'ImageSlideshow'
+  pod 'FDFullscreenPopGesture'
 end
 
 target 'FavoriteViewPractice' do
